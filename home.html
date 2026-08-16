@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}K-Haven ♡ BL Haven{% endblock %}{% block content %}
+<section class="hero"><div class="small">♡ welcome to ♡</div><h1>K-<span>Haven</span></h1><div class="serif" style="font-size:25px;font-style:italic">A haven for every BL lover</div><p>Discover stories, save your favorites, create an account, and read chapters in a cozy little pink corner of the internet. 🎀</p><a class="btn" href="#browse">Explore stories</a></section>
+<section class="section" id="browse"><div class="head"><h2>🎀 Stories in the Haven</h2><a class="pill" href="{{url_for('upload')}}">+ Add your story</a></div><div class="grid">{% for s in stories %}<a class="book" href="{{url_for('story',story_id=s.id)}}"><div class="cover {{['c1','c2','c3','c4'][loop.index0%4]}}">{{s.cover}}</div><div class="info"><h3>{{s.title}} ♡</h3><p>{{s.author}} · {{s.genre}}</p><span class="tag">{{s.genre}}</span></div></a>{% endfor %}</div></section>
+{% endblock %}

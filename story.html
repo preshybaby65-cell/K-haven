@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}{{story.title}} · K-Haven{% endblock %}{% block content %}
+<section class="storyHead"><div class="storyTop"><div class="storyCover">{{story.cover}}</div><div><div class="small">♡ story</div><h1>{{story.title}}</h1><p><b>By {{story.author}}</b> · {{story.genre}}</p><p>{{story.description}}</p><form method="post" action="{{url_for('favorite',story_id=story.id)}}"><button class="pill" type="submit">{{'♥ Saved to favorites' if fav else '♡ Add to favorites'}}</button></form></div></div></section>
+<section class="section"><div class="head"><h2>Chapters 🎀</h2><span>{{chapters|length}} chapter(s)</span></div><div class="chapters">{% for ch in chapters %}<a class="chapter" href="{{url_for('chapter',chapter_id=ch.id)}}"><span>Chapter {{ch.number}} — {{ch.title}}</span><span>Read →</span></a>{% endfor %}</div></section>
+{% endblock %}
