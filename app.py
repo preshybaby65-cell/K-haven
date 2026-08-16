@@ -150,8 +150,7 @@ def upload():
         c.execute("INSERT INTO chapters(story_id,number,title,body) VALUES(?,?,?,?)",(sid,1,ch_title,body))
         c.commit(); c.close()
         return redirect(url_for("story",story_id=sid))
-    return render_template("upload.html")
+    return render_template("upload.init_db()
 
 if __name__=="__main__":
-    init_db()
     app.run(debug=True)
